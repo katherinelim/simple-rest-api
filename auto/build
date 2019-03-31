@@ -1,0 +1,11 @@
+#! /bin/bash -e
+#
+# Build Docker image
+
+cd $(dirname $0)/..
+
+auto/save-sha-head
+
+echo "--- Building Docker image"
+docker build .
+
