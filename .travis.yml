@@ -12,5 +12,8 @@ services:
 before_install:
   - ./auto/save-sha-head
 
+script:
+  - ./auto/test
+
 after_success:
-  - docker --version
+  - ./auto/publish
