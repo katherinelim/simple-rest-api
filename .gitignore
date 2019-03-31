@@ -9,7 +9,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
-SHA_HEAD.yml
+/SHA_HEAD.yml
 
 # Used by dotenv library to load environment variables.
 # .env

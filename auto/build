@@ -8,4 +8,3 @@ auto/save-sha-head
 
 echo "--- Building Docker image"
 docker build .
-
