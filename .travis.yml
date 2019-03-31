@@ -11,3 +11,4 @@ services:
 
 before_install:
   - docker --version
+  - ./auto/save-sha-head
