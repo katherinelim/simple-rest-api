@@ -1,8 +1,7 @@
-# app.rb
+# server.rb
 require 'logger'
 require 'sinatra'
 set :logger, Logger.new(STDOUT)
-# logger.level = Logger::INFO
 require 'sinatra/config_file'
 config_file '../appmeta.yml'
 config_file '../SHA_HEAD.yml'

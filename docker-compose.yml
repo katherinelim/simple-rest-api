@@ -4,9 +4,9 @@ services:
   dev:
     image: "ruby:2.6-slim"
     volumes:
-       - .:/app
+       - .:/work
        - ruby-2.6-bundle-cache:/usr/local/bundle
-    working_dir: /app
+    working_dir: /work
     ports:
       - "5000:5000"
 volumes:
