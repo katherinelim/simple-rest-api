@@ -16,4 +16,5 @@ script:
   - ./auto/rake-test
 
 after_success:
+  - ./auto/build
   - ./auto/publish

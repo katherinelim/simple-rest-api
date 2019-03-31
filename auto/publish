@@ -9,4 +9,6 @@ echo "--- Publishing Docker image"
 IMAGE_NAME="katdockero/simple-rest-api"
 VERSION=$(auto/get-version)
 
-echo "Docker image: ${IMAGE_NAME}:${VERSION}"
+echo "Publishing Docker image: ${IMAGE_NAME}:${VERSION}"
+
+docker images
