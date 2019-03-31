@@ -2,4 +2,11 @@
 #
 # Publish Docker image
 
+cd $(dirname $0)/..
+
 echo "--- Publishing Docker image"
+
+IMAGE_NAME="katdockero/simple-rest-api"
+VERSION=$(auto/get-version)
+
+echo "Docker image: ${IMAGE_NAME}:${VERSION}"
