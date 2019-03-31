@@ -1,19 +1,19 @@
 # app.rb
 require 'logger'
-logger = Logger.new(STDOUT)
-logger.level = Logger::INFO
-
 require 'sinatra'
+set :logger, Logger.new(STDOUT)
+# logger.level = Logger::INFO
 require 'sinatra/config_file'
 config_file '../appmeta.yml'
 config_file '../SHA_HEAD.yml'
 require 'sinatra/namespace'
+require "sinatra/reloader" if development?
 require 'json'
 
 # Endpoints
 get '/' do
   logger.info("Example log - get / - HELLO WORLD")
-  return "Hello World!"
+  return "Hello World"
 end
 
 get '/status' do

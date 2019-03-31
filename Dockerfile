@@ -4,18 +4,12 @@ ADD . /app
 WORKDIR /app
 
 # Pre-install gems
-# COPY Gemfile /app/Gemfile
-# COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install --path /usr/local/bundle
-
-# COPY app/server.rb /app/server.rb
-# COPY appmeta.yml /app/appmeta.yml
-# WORKDIR /app
 
 # Defaults
 ENV PORT 5000
 ENV RACK_ENV production
-ENV MAIN_APP_FILE app.rb
+ENV MAIN_APP_FILE server.rb
 
 # Expose app-server port
 EXPOSE $PORT
