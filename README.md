@@ -1,5 +1,7 @@
 # simple-rest-api
 
+https://travis-ci.org/katherinelim/simple-rest-api.svg?branch=master
+
 Simple-rest-api provides a basic code repository for a REST API micro service with pipeline.
 
 It's implemented in Ruby, Sinatra and uses Docker for a development environment.
