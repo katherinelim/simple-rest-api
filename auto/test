@@ -4,5 +4,5 @@
 
 cd $(dirname $0)/..
 
-echo "--- Running tests"
+echo "--- Running tests in the dev environment"
 ./auto/dev-environment rspec "$@"

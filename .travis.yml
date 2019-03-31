@@ -13,7 +13,7 @@ before_install:
   - ./auto/save-sha-head
 
 script:
-  - ./auto/test
+  - ./auto/rake-test
 
 after_success:
   - ./auto/publish
