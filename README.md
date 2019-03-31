@@ -11,7 +11,7 @@ Clone this repository and use it to kick off your own project.
 
 ## What it provides
 
-This repository provides code for a REST API micro service and a pipeline configuration to test, build and publish it as a Docker image.
+This repository provides code for a REST API micro service and a pipeline configuration to test, build and publish the application as a Docker image.
 
 ### The application
 
@@ -55,6 +55,7 @@ There are 3 stages:
 ## Docker Image
 
 The Docker Image is published at [Docker Hub](https://hub.docker.com) as
+[`katdockero/simple-rest-api`](https://hub.docker.com/r/katdockero/simple-rest-api).
 
 ## Development Notes
 
@@ -86,7 +87,7 @@ This is a convenient script to run the application's Docker container. The image
 
 `auto/test`
 
-Runs the code tests using RSpec.
+Runs the code tests using RSpec in the `dev-environment`.
 
 `auto/dev-environment`
 
@@ -94,6 +95,18 @@ Runs a Ruby Docker Container with the application code and starts on a shell pro
 
 It uses `sinatra/reloader` so any saved code changes will reload the application in this environment.
 There should be no need to restart the web server.
+
+`auto/get-version`
+
+Returns the `version:` value from `appmeta.yml`.
+
+`auto/publish`
+
+Publisheds the Docker image to Docker Hub.
+
+`auto/rake-test`
+
+Runs `bundle exec rake`.
 
 `auto/build`
 
@@ -143,3 +156,18 @@ Configuration file for Travis CI.
 
 ## Limitations and Risks
 
+There are some limitations and risks to this implementation which are discussed in this section.
+
+The application is written in Ruby using the Sinatra framework. It could be in NodeJS or Golang but the code demonstrates microservice endpoints and includes a very basic demonstration of an API endpoint. It follows the [Twelve Factor App Methodology](https://12factor.net/) where it is feasible.
+
+There is no graceful error handling but all application events are logged to `stdout` - the console. Cloud services like AWS will collect the console logs in any case. In further work, the logged events could be redirected as required, either to a file, syslog or elsewhere using a data collector like [Fluentd](https://www.fluentd.org/).
+
+Although HTTPS is supported by the Puma web server, it's out of scope of this implementation. For secure connections to the micro service, it could be listening behind a load balancer or proxy which can handle secure connections.
+
+Due to the basic nature of the code provided, the API does not have metering or access control. This could be implemented or a gateway service could provide the functionality, like AWS API Gateway.
+
+No monitoring support is provided in this project. There is scope for adding support for better health checks of the API in the code. Services like New Relic or Sentry could be integrated.
+
+Although Puma is a multi-threaded web server, the project would not be considered resilient enough for production use. Further work would consist of deploying it behind a load balancer and adjusting the number of instances or tasks to serve the projected request volumes.
+
+This project depends on GitHub to host the code, Travis CI for the pipeline and Docker Hub to host the built image. This is less of a risk as development, test and build can be accomplished on the developer's own computer with Ruby, Sinatra and Docker installed along with other expected software.
