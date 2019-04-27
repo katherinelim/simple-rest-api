@@ -2,7 +2,7 @@ version: '3'
 
 services:
   dev:
-    image: "ruby:2.6-slim"
+    image: "ruby:2.6"
     volumes:
        - .:/work
        - ruby-2.6-bundle-cache:/usr/local/bundle
