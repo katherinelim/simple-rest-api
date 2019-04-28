@@ -54,7 +54,7 @@ There are 3 stages:
 
 ## Docker Image
 
-The Docker Image is published at [Docker Hub](https://hub.docker.com) as
+The Docker image is published at [Docker Hub](https://hub.docker.com) as
 [`katdockero/simple-rest-api`](https://hub.docker.com/r/katdockero/simple-rest-api).
 
 ## Development Notes
@@ -102,7 +102,7 @@ Returns the `version:` value from `appmeta.yml`.
 
 `auto/publish`
 
-Publisheds the Docker image to Docker Hub.
+Uploads the Docker image to Docker Hub.
 
 `auto/rake-test`
 
@@ -162,7 +162,7 @@ The application is written in Ruby using the Sinatra framework. It could be in N
 
 There is no graceful error handling but all application events are logged to `stdout` - the console. Cloud services like AWS will collect the console logs in any case. In further work, the logged events could be redirected as required, either to a file, syslog or elsewhere using a data collector like [Fluentd](https://www.fluentd.org/).
 
-Although HTTPS is supported by the Puma web server, it's out of scope of this implementation. For secure connections to the micro service, it could be listening behind a load balancer or proxy which can handle secure connections.
+Although HTTPS is supported by the Puma web server, it's out of scope for this implementation. For secure connections to the micro service, it could be listening behind a load balancer or proxy which can handle secure connections.
 
 Due to the basic nature of the code provided, the API does not have metering or access control. This could be implemented or a gateway service could provide the functionality, like AWS API Gateway.
 
