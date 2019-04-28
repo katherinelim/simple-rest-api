@@ -13,6 +13,7 @@ before_install:
   - ./auto/save-sha-head
 
 script:
+  - ./auto/rubocop
   - ./auto/rake-test
 
 after_success:
