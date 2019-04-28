@@ -4,12 +4,14 @@ require 'rspec'
 
 ENV['RACK_ENV'] = 'test'
 
-require File.expand_path '../../app/server.rb', __FILE__
+require File.expand_path('../app/server.rb', __dir__)
 
 module RSpecMixin
   include Rack::Test::Methods
-  def app() Sinatra::Application end
+  def app
+    Sinatra::Application
+  end
 end
 
 # For RSpec 2.x and 3.x
-RSpec.configure { |c| c.include RSpecMixin }
+RSpec.configure{|c| c.include RSpecMixin }
