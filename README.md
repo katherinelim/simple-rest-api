@@ -1,4 +1,5 @@
 # simple-rest-api
+
 [![Build Status](https://travis-ci.org/katherinelim/simple-rest-api.svg?branch=master)](https://travis-ci.org/katherinelim/simple-rest-api)
 
 Simple-rest-api provides a basic code repository for a REST API micro service with pipeline.
@@ -48,6 +49,7 @@ The response from this endpoint is:
 The pipeline uses [Travis CI](https://travis-ci.com).
 
 There are 3 stages:
+
 1. Run tests.
 2. Build the project.
 3. Publish the Docker image to Docker Hub.
